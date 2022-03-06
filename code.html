@@ -57,17 +57,57 @@
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                //call hello world
-                                function helloWorld() {
-                                    alert("hello world");
+                                //get value
+                                //controller function
+                                function getValue() {
+                                    //ensures the "alert" element is not visible
+                                    document.getElementById("alert").classList.add("invisible")
+                                    let phrase = document.getElementById("phrase").value;
+                                    let value = reverseValue(phrase);
+                                    displayValue(value);
+                                }
+                                
+                                //reverse value
+                                //logic function
+                                function reverseValue(phr) {
+                                    let rValue = "";
+                                    //reverse string with for loop
+                                    for (i = phr.length -1; i >=0; i--) {
+                                        rValue += phr[i];
+                                    }
+                                    return rValue;
+                                }
+                                
+                                //display reversed value
+                                //view function
+                                function displayValue(val){
+                                    let rPhrase = val;
+                                    //makes the "alert" element visible to display the msg
+                                    document.getElementById("alert").classList.remove("invisible")
+                                    document.getElementById("msg").innerHTML = `Your phrase reversed is: ${rPhrase}`;
                                 }
                             </code>
                         </pre>
                     </div>
                     <div class="col-lg-4">
-                        <p>The code is structered in one function</p>
-                        <h5>hello world</h5>
-                        <p>hello world is a function that displays and alert with the message hello world</p>
+                        <p>The code is structered into three functions</p>
+                        <h5>getValue()</h5>
+                        <p>This is the main/controller fuction of the program. We use it to gather the user input. Call 
+                            reverseValue() and pass it the value that it retrieved from the user input. Finally it calls
+                            displayValue() and passes it the value that was returned from reverseValue().
+                        </p>
+                        <h5>reverseValue()</h5>
+                        <p>
+                            This is the logic function of the program. The user input value is passed in from getValue(). Then it 
+                            iterates through the string starting at the last index and stores each value into a variable rValue. After 
+                            which it returns the value to getValue().
+                        </p>
+                        <h5>displayValue()</h5>
+                        <p>
+                            This is the view function of the program. The rendered data from reverseValue() is passed in from getValue().
+                            Then the function removes the "invisible" class from the "alert" element of the DOM so that it will be 
+                            displayed, then it renders rPhrase to the "msg" element.
+                        </p>
                     </div>
                 </div>
             </div>
