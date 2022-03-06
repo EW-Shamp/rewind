@@ -16,7 +16,8 @@ function reverseValue(phr) {
 
 //display reversed value
 function displayValue(val){
-    let rphrase = val;
+    let rphrase = `<div class="border border-2 border-dark rounded-pill p-1 d-flex justify-content-center
+    bg-info bg-gradient text-dark align-content-center fw-bold">${val}</div>`;
 
     document.getElementById("result").innerHTML = rphrase;
 }
